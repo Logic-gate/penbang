@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="root-menu" label="Openbox 3">
+		<item label="Run Program" icon="/home/mad-dev/.icons/AwOken/clear/128x128/apps/rosso.png">
+			<action name="Execute">
+				<command>
+					gmrun
+				</command>
+			</action>
+		</item>
+		<separator/>
+		<item label="Terminal" icon='/home/mad-dev/.icons/AwOken/clear/128x128/apps/bash.png'>
+			<action name="Execute">
+				<command>
+					terminator
+				</command>
+			</action>
+		</item>
+		<item label="Web Browser" icon='/home/mad-dev/.icons/AwOken/clear/128x128/apps/firefox1.png'>
+			<action name="Execute">
+				<command>
+					x-www-browser
+				</command>
+			</action>
+		</item>
+		<item label="ThunderBird" icon='/home/mad-dev/.icons/AwOken/clear/128x128/apps/thunderbird1.png'>
+			<action name="Execute">
+				<command>
+					/usr/share/thunderbird/thunderbird
+				</command>
+			</action>
+		</item>
+		<item label="File Manager" icon='/home/mad-dev/.icons/AwOken/clear/128x128/apps/file-manager.png'>
+			<action name="Execute">
+				<command>
+					thunar
+				</command>
+			</action>
+		</item>
+		<item label="Text Editor" icon='/home/mad-dev/penbang/programimng/editors/Sublime_Text_2/Icon/128x128/sublime_text.png'>
+			<action name="Execute">
+				<command>subl</command>
+			</action>
+		</item>
+		<item label="Media Player" icon='/home/mad-dev/.icons/AwOken/clear/128x128/apps/vlc1.png'>
+			<action name="Execute">
+				<command>
+					vlc
+				</command>
+			</action>
+		</item>
+		<item label="Qt4 Designer" icon='/home/mad-dev/.icons/AwOken/clear/128x128/apps/qtdesigner.png'>
+			<action name="Execute">
+				<command>
+					designer-qt4
+				</command>
+			</action>
+		</item>
+		<separator/>
+		<menu id="accessories" label="Accessories" icon='/home/mad-dev/.icons/AwOken/clear/128x128/apps/drawer.png'>
+			<item label="Catfish File Search" icon='/home/mad-dev/.icons/AwOken/clear/128x128/apps/catfish.png'>
+				<action name="Execute">
+					<command>
+						catfish
+					</command>
+				</action>
+			</item>
+			<item label="Archive Manager">
+				<action name="Execute">
+					<command>
+						file-roller
+					</command>
+				</action>
+			</item>
+			<item label="Geany Text Editor">
+				<action name="Execute">
+					<command>
+						geany
+					</command>
+				</action>
+			</item>
+			<item label="Task Manager (htop)">
+				<action name="Execute">
+					<command>terminator --command=&quot;htop&quot;</command>
+				</action>
+			</item>
+			<item label="Terminator Terminal">
+				<action name="Execute">
+					<command>
+						terminator
+					</command>
+				</action>
+			</item>
+			<item label="Thunar File Manager">
+				<action name="Execute">
+					<command>
+						thunar
+					</command>
+				</action>
+			</item>
+			<item label="Thunar File Manager (root)">
+				<action name="Execute">
+					<command>
+						gksudo thunar
+					</command>
+				</action>
+			</item>
+		</menu>
+		<menu id="graphics" label="Graphics" icon="/home/mad-dev/.icons/AwOken/clear/128x128/apps/graphics-image-editor.png">
+			<item label="GIMP">
+				<action name="Execute">
+					<command>
+						gimp
+					</command>
+				</action>
+			</item>
+			<item label="Viewnior Image Viewer">
+				<action name="Execute">
+					<command>
+						viewnior
+					</command>
+				</action>
+			</item>
+			<menu id="graphicsScreenshots" label="Take Screenshot">
+				<item label="Screenshooter">
+					<action name="Execute">
+						<command>
+							xfce4-screenshooter
+						</command>
+					</action>
+				</item>
+				<separator label="scrot"/>
+				<item label="Now">
+					<action name="Execute">
+						<command>
+							scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
+						</command>
+					</action>
+				</item>
+				<item label="In 5 Seconds...">
+					<action name="Execute">
+						<command>
+							scrot -d 5 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
+						</command>
+					</action>
+				</item>
+				<item label="In 10 Seconds...">
+					<action name="Execute">
+						<command>
+							scrot -d 10 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
+						</command>
+					</action>
+				</item>
+				<item label="Selected Area... (click &amp; drag mouse)">
+					<action name="Execute">
+						<command>
+							scrot -s '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
+						</command>
+					</action>
+				</item>
+			</menu>
+		</menu>
+		<menu id="multimedia" label="Multimedia" icon="/home/mad-dev/.icons/AwOken/clear/128x128/apps/multimedia.png">
+			<item label="GNOME MPlayer">
+				<action name="Execute">
+					<command>
+						vlc
+					</command>
+				</action>
+			</item>
+			<item label="Volume Control">
+				<action name="Execute">
+					<command>
+						pavucontrol
+					</command>
+				</action>
+			</item>
+			<item label="Xfburn">
+				<action name="Execute">
+					<command>
+						xfburn
+					</command>
+				</action>
+			</item>
+		</menu>
+		<menu id="network" label="Network" icon="/home/mad-dev/.icons/AwOken/clear/128x128/places/network_local.png">
+			<menu execute="cb-x-www-browser-pipemenu" id="wwwbrowsers" label="WWW Browsers"/>
+			<item label="gFTP Client">
+				<action name="Execute">
+					<command>
+						gftp
+					</command>
+				</action>
+			</item>
+			<item label="FileZilla">
+				<action name="Execute">
+					<command>
+						filezilla
+					</command>
+				</action>
+			</item>
+			<item label="Transmission BitTorrent Client">
+				<action name="Execute">
+					<command>
+						transmission-gtk
+					</command>
+				</action>
+			</item>
+			<item label="XChat IRC Client">
+				<action name="Execute">
+					<command>
+						xchat
+					</command>
+				</action>
+			</item>
+			<item label="Remote Filesystems">
+				<action name="Execute">
+					<command>
+						gigolo
+					</command>
+				</action>
+			</item>
+			<menu execute="cb-remote-desktop-pipemenu" id="remotedesktop" label="Remote Desktop"/>
+			<menu execute="cb-sshconfig-pipemenu" id="sshconfig" label="SSH"/>
+			<separator label="Services"/>
+			<menu execute="cb-dropbox-pipemenu" id="dropbox" label="Dropbox"/>
+		</menu>
+		<menu id="office" label="Office" icon="/home/mad-dev/.icons/AwOken/clear/128x128/apps/office-writer.png">
+			<menu execute="cb-libreoffice-pipemenu" id="libreoffice" label="LibreOffice"/>
+			<item label="Google Docs">
+				<action name="Execute">
+					<command>
+						x-www-browser https://drive.google.com/
+					</command>
+				</action>
+			</item>
+			<item label="AbiWord Word Processor">
+				<action name="Execute">
+					<command>
+						abiword
+					</command>
+				</action>
+			</item>
+			<item label="Gnumeric Spreadsheet">
+				<action name="Execute">
+					<command>
+						gnumeric
+					</command>
+				</action>
+			</item>
+			<item label="Calculator">
+				<action name="Execute">
+					<command>
+						galculator
+					</command>
+				</action>
+			</item>
+			<item label="Evince PDF Viewer">
+				<action name="Execute">
+					<command>
+						evince
+					</command>
+				</action>
+			</item>
+		</menu>
+		<separator label="          "/>
+		<item label="Root Terminal" icon="/home/mad-dev/.icons/AwOken/clear/24x24/status/security-high.png">
+			<action name="Execute">
+				<command>terminator -p root --working-directory=/ -T ROOT -x sudo su</command>
+			</action>
+		</item>
+		<menu id="root-menu-593021" label="PenBang" icon="/home/mad-dev/.icons/AwOken/clear/24x24/emotes/face-angel.png">
+			<menu id="root-menu-593021-253425" label="Network Exploits" icon="/home/mad-dev/.icons/AwOken/clear/24x24/places/network-workgroup1.png">
+				<separator label="Network Exploits"/>
+				<item label="aircrack-ng">
+					<action name="Execute">
+						<command>terminator -T aircrack-ng -e 'python /home/$(whoami)/penbang/Scripts.py aircrack-ng'</command>
+					</action>
+				</item>
+				<item label="airmon-ng">
+					<action name="Execute">
+						<command>terminator -T airmon-ng -e 'python /home/$(whoami)/penbang/Scripts.py airmon-ng'</command>
+					</action>
+				</item>
+				<item label="airodump-ng">
+					<action name="Execute">
+						<command>terminator -T airodump-ng -e 'python /home/$(whoami)/penbang/Scripts.py airodump-ng'</command>
+					</action>
+				</item>
+				<item label="sslstrip">
+					<action name="Execute">
+						<command>terminator -T sslstrip -e 'python /home/$(whoami)/penbang/Scripts.py sslstrip'</command>
+					</action>
+				</item>
+				<item label="sslsniff">
+					<action name="Execute">
+						<command>terminator -T sslsniff -e 'python /home/$(whoami)/penbang/Scripts.py sslsniff'</command>
+					</action>
+				</item>
+				<item label="reaver">
+					<action name="Execute">
+						<command>terminator -T reaver -e 'python /home/$(whoami)/penbang/Scripts.py reaver'</command>
+					</action>
+				</item>
+				<item label="ettercap">
+					<action name="Execute">
+						<command>terminator -T ettercap -e 'python /home/$(whoami)/penbang/Scripts.py ettercap'</command>
+					</action>
+				</item>
+				<item label="subterfuge">
+					<action name="Execute">
+						<command>terminator -T subterfuge -e  'python /home/$(whoami)/penbang/Scripts.py subterfuge'</command>
+					</action>
+				</item>
+				<item label="yamas">
+					<action name="Execute">
+						<command>terminator -T yamas -e  'python /home/$(whoami)/penbang/Scripts.py yamas'</command>
+					</action>
+				</item>
+				<menu id='SMITM' label="SMITM">
+					<separator label="SMITM"/>
+				<item label="smitm start">
+					<action name="Execute">
+						<execute>terminator -T smitm -e 'sudo smitm;'</execute>
+					</action>
+				</item>
+				<item label="smitm stop">
+					<action name="Execute">
+						<execute>terminator -T smitm-stop -e 'sudo smitm-stop;'</execute>
+				</action>
+				</item>
+				</menu>
+				<menu id='slowloris' label="slowloris">
+					<separator label="slowloris"/>
+				<item label="slowloris ipv4">
+					<action name="Execute">
+						<execute>terminator -T 'slowloris ipv4' -e  'python /home/$(whoami)/penbang/Scripts.py slowloris'</execute>
+					</action>
+				</item>
+				<item label="slowloris ipv6">
+					<action name="Execute">
+						<execute>terminator -T 'slowloris ipv6' -e  'python /home/$(whoami)/penbang/Scripts.py slowloris6'</execute>
+				</action>
+				</item>
+				</menu>
+				<item label="w3af CLI">
+					<action name="Execute">
+						<command>terminator -T w3af -e  'python /home/$(whoami)/penbang/Scripts.py w3af_cli'</command>
+					</action>
+				</item>
+				<item label="w3af GUI">
+					<action name="Execute">
+						<command>terminator -T w3af -e  'sudo /home/mad-dev/penbang/netkit/w3af/w3af_gui'</command>
+					</action>
+				</item>
+			</menu>
+			<menu id="root-menu-593021-256544" label="Vulnerability Assessment/Exploits" icon="/home/mad-dev/.icons/AwOken/clear/24x24/overlay/network-workgroup.png">
+				<separator label="Vulnerability Assessment/Exploits"/>
+				<!--<item label='Nessus'>
+							<action name="Execute">
+								<command>terminator -T nessus -e  'python /home/$(whoami)/penbang/netkit/netkit_source/Scripts.py nessus'</command>
+							</action>
+				</item>	-->
+				
+				<menu id='meta' label="Metasploit Framework">
+					<separator label="Metasploit Framework"/>
+					<item label="Metasploit CE GUI">
+						<action name="Execute">
+							<command>firefox 127.0.0.1:3001</command>
+						</action>
+					</item>
+					<item label="Metasploit CE Console">
+						<action name="Execute">
+							<command>terminator -T msfconsole -e 'sudo msfconsole'</command>
+						</action>
+					</item>
+					<item label="Armitage">
+						<action name="Execute">
+							<execute>terminator --command="sudo armitage"</execute>
+						</action>
+					</item>
+				</menu>
+				<item label='Sqlninja'>
+							<action name="Execute">
+								<command>terminator -T sqlninja -e  'python /home/$(whoami)/penbang/Scripts.py sqlninja'</command>
+							</action>
+				</item>	
+				<item label='Sqlsus'>
+							<action name="Execute">
+								<command>terminator -T sqlsus -e  'python /home/$(whoami)/penbang/Scripts.py sqlsus'</command>
+							</action>
+				</item>	
+				<item label='wfuzz'>
+							<action name="Execute">
+								<command>terminator -T wfuzz -e  'python /home/$(whoami)/penbang/Scripts.py wfuzz'</command>
+							</action>
+				</item>	
+				<item label='hydra'>
+							<action name="Execute">
+								<command>terminator -T hydra -e  'python /home/$(whoami)/penbang/Scripts.py hydra'</command>
+							</action>
+				</item>
+				<item label='hydra-gtk'>
+							<action name="Execute">
+								<command>xhydra</command>
+							</action>
+				</item>	
+				<item label='ntop'>
+							<action name="Execute">
+								<command>terminator -T ntop -e  'python /home/$(whoami)/penbang/Scripts.py ntop'</command>
+							</action>
+				</item>	
+				<item label='fragroute'>
+							<action name="Execute">
+								<command>terminator -T fragroute -e  'python /home/$(whoami)/penbang/Scripts.py fragroute'</command>
+							</action>
+				</item>	
+				<item label='snort'>
+							<action name="Execute">
+								<command>terminator -T snort -e  'python /home/$(whoami)/penbang/Scripts.py snort'</command>
+							</action>
+				</item>
+				<item label='wpscan'>
+							<action name="Execute">
+								<command>terminator -T wpscan -e  'python /home/$(whoami)/penbang/Scripts.py wpscan'</command>
+							</action>
+				</item>
+				<item label='wpstools'>
+							<action name="Execute">
+								<command>terminator -T wpstools -e  'python /home/$(whoami)/penbang/Scripts.py wpstools'</command>
+							</action>
+				</item>
+				<item label='ZAP'>
+					<action name="Execute">
+						<command>terminator -T ZAP -e '/home/$(whoami)/penbang/netkit/ZAP/ZAP_2.2.2/zap.sh'</command>
+					</action>
+				</item>
+
+			</menu>
+			<menu id="root-menu-593021-264559" label="Network Analysis" icon="/home/mad-dev/.icons/AwOken/clear/24x24/status/network-wireless-connected.png">
+				<separator label="Network Analysis"/>
+				<item label="scapy">
+					<action name="Execute">
+						<command>terminator -p scapy -T Scapy -x sudo scapy</command>
+					</action>
+				</item>
+				<item label="kismet">
+					<action name="Execute">
+						<command>terminator  -T kismet -e 'python /home/$(whoami)/penbang/Scripts.py kismet'</command>
+					</action>
+				</item>
+				<item label="nmap">
+					<action name="Execute">
+						<command>terminator -T nmap -e 'python /home/$(whoami)/penbang/Scripts.py nmap'</command>
+					</action>
+				</item>
+				<item label="zenmap">
+					<action name="Execute">
+						<command>terminator -x sudo zenmap</command>
+					</action>
+				</item>
+				<item label="tcpdump">
+					<action name="Execute">
+						<command>terminator -T tcpdump -e 'python /home/$(whoami)/penbang/Scripts.py tcpdump'</command>
+					</action>
+				</item>
+				<item label="tshark">
+					<action name="Execute">
+						<command>terminator -p tshark -T tshark -e 'python /home/$(whoami)/penbang/Scripts.py tshark'</command>
+					</action>
+				</item>
+				<item label="etherape">
+					<action name="Execute">
+						<command>terminator -T etherape -e 'python /home/$(whoami)/penbang/Scripts.py etherape'</command>
+					</action>
+				</item>
+				<item label="wireshark">
+					<action name="Execute">
+						<command>terminator -x sudo wireshark</command>
+					</action>
+				</item>
+				<item label="argus">
+					<action name="Execute">
+						<command>terminator -T argus -e 'python /home/$(whoami)/penbang/Scripts.py argus'</command>
+					</action>
+				</item>
+				<item label="spike">
+					<action name="Execute">
+						<command>terminator -T spike -e 'python /home/$(whoami)/penbang/Scripts.py spike'</command>
+					</action>
+				</item>
+				<menu id='nikto' label="Nikto">
+					<separator label="Nikto"/>
+					<item label="nikto">
+						<action name="Execute">
+							<command>terminator -T nikto -e 'python /home/$(whoami)/penbang/Scripts.py nikto'</command>
+						</action>
+					</item>
+					<item label="replay">
+						<action name="Execute">
+							<command>terminator -T 'nikto replay' -e 'python /home/$(whoami)/penbang/Scripts.py nikto_replay'</command>
+						</action>
+					</item>
+					<item label="nikto conf">
+						<action name="Execute">
+							<execute>terminator --command="sudo nano /home/$(whoami)/penbang/netkit/nikto/nikto-2.1.5/nikto.conf"</execute>
+						</action>
+					</item>
+				</menu>
+				<item label='Climber'>
+					<action name='Execute'>
+						<command>terminator -T Climber --command="sudo python /home/$(whoami)/penbang/netkit/climber/climber/climber.py"</command>
+					</action>
+				</item>
+				<menu id='xplico' label='Xplico'>
+				<separator label="Xplico"/>
+				<item label='Start|Luanch'>
+					<action name='Execute'>
+						<command>terminator -T xplico_START --command="sudo /etc/init.d/xplico start; firefox -new-window localhost:9876"</command>
+					</action>
+				</item>
+				<item label='Stop'>
+					<action name='Execute'>
+						<command>terminator -T xplico_STOP --command="sudo /etc/init.d/xplico stop"</command>
+					</action>
+				</item>
+			</menu>
+			</menu>
+			<menu id="root-menu-593021-173039" label="Social Engineering" icon="/home/mad-dev/.icons/AwOken/clear/24x24/actions/edit-find-user.png">
+				<separator label="Social Engineering"/>
+				<item label="Maltego">
+					<action name="Execute">
+						<command>maltego</command>
+					</action>
+				</item>
+				<item label="Callerpy">
+					<action name="Execute">
+						<command>terminator -T 'callerpy' -e 'python /home/$(whoami)/penbang/Scripts.py callerpy'</command>
+					</action>
+				</item>
+			</menu>
+			<menu id="root-menu-593021-885832" label="I.G.C" icon="/home/mad-dev/.icons/AwOken/clear/24x24/status/info.png">
+				<separator label="I.G.C"/>
+				<item label="Crunch">
+					<action name="Execute">
+						<command>terminator -T Crunch -e 'python /home/$(whoami)/penbang/Scripts.py crunch'</command>
+					</action>
+				</item>
+				<item label="John">
+					<action name="Execute">
+						<command>terminator -T 'John The Ripper Password Cracker' -e 'python /home/$(whoami)/penbang/Scripts.py john'</command>
+					</action>
+				</item>
+				<item label="Hash-Id">
+					<action name="Execute">
+						<command>terminator -T HASH-ID --geometry=800x400+150+150 -e 'python /home/$(whoami)/penbang/netkit/netkit_source/Hash_ID_v1.1.py'</command>
+					</action>
+				</item>
+				<item label="findmyhash">
+					<action name="Execute">
+						<command>terminator -T findmyhash -e 'python /home/$(whoami)/penbang/Scripts.py findmyhash'</command>
+					</action>
+				</item>
+				<item label="parselog">
+					<action name="Execute">
+						<command>terminator -T parselog -e 'python /home/$(whoami)/penbang/Scripts.py parselog'</command>
+					</action>
+				</item>
+				<item label="Log_Ex">
+					<action name="Execute">
+						<command>terminator -T Log_Ex -e 'python /home/$(whoami)/penbang/Scripts.py log_ex'</command>
+					</action>
+				</item>
+				<item label="arping">
+					<action name="Execute">
+						<command>terminator -T arping -e 'python /home/$(whoami)/penbang/Scripts.py arping'</command>
+					</action>
+				</item>
+				<item label="ophcrack-cli">
+					<action name="Execute">
+						<command>terminator -T 'ophcrack-cli' -e 'python /home/$(whoami)/penbang/Scripts.py ophcrack-cli'</command>
+					</action>
+				</item>
+				<item label="ophcrack">
+					<action name="Execute">
+						<command>terminator --command="ophcrack"</command>
+					</action>
+				</item>
+				<item label="patator">
+					<action name="Execute">
+						<command>terminator -T patator -e "python /home/$(whoami)/penbang/Scripts.py patator"</command>
+					</action>
+				</item>
+				
+			</menu>
+			<menu id="root-menu-593021-88216" label="dsniff suite" icon="/home/mad-dev/.icons/AwOken/clear/24x24/emblems/emblem-remote.png">
+				<separator label="dsniff suite"/>
+				<item label="dsniff">
+					<action name="Execute">
+						<command>terminator  -T dsniff -e 'python /home/$(whoami)/penbang/Scripts.py dsniff'</command>
+					</action>
+				</item>
+				<item label="filesnarf">
+					<action name="Execute">
+						<command>terminator  -T filesnarf -e 'python /home/$(whoami)/penbang/Scripts.py filesnarf'</command>
+					</action>
+				</item>
+				<item label="mailsnarf">
+					<action name="Execute">
+						<command>terminator  -T mailsnarf -e 'python /home/$(whoami)/penbang/Scripts.py mailsnarf'</command>
+					</action>
+				</item>
+				<item label="msgsnarf">
+					<action name="Execute">
+						<command>terminator  -T msgsnarf -e 'python /home/$(whoami)/penbang/Scripts.py msgsnarf'</command>
+					</action>
+				</item>
+				<item label="urlsnarf">
+					<action name="Execute">
+						<command>terminator  -T urlsnarf -e 'python /home/$(whoami)/penbang/Scripts.py urlsnarf'</command>
+					</action>
+				</item>
+				<item label="webspy">
+					<action name="Execute">
+						<command>terminator  -T webspy -e 'python /home/$(whoami)/penbang/Scripts.py webspy'</command>
+					</action>
+				</item>
+				<item label="arpspoof">
+					<action name="Execute">
+						<command>terminator  -T arpspoof -e 'python /home/$(whoami)/penbang/Scripts.py arpspoof'</command>
+					</action>
+				</item>
+				<item label="dnsspoof">
+					<action name="Execute">
+						<command>terminator  -T dnsspoof -e 'python /home/$(whoami)/penbang/Scripts.py dnsspoof'</command>
+					</action>
+				</item>
+				<item label="macof">
+					<action name="Execute">
+						<command>terminator  -T macof -e 'python /home/$(whoami)/penbang/Scripts.py macof'</command>
+					</action>
+				</item>
+				<item label="sshmitm">
+					<action name="Execute">
+						<command>terminator  -T sshmitm -e 'python /home/$(whoami)/penbang/Scripts.py sshmitm'</command>
+					</action>
+				</item>
+				<item label="webmitm">
+					<action name="Execute">
+						<command>terminator  -T webmitm -e 'python /home/$(whoami)/penbang/Scripts.py webmitm'</command>
+					</action>
+				</item>
+			</menu>
+			<menu id="root-menu-593021-705835" label="irpas" icon="/home/mad-dev/.icons/AwOken/clear/24x24/status/crop.png">
+				<separator label="irpas"/>
+				<item label="hsrp">
+					<action name="Execute">
+						<command>terminator -T hsrp -e 'python /home/$(whoami)/penbang/Scripts.py hsrp'</command>
+					</action>
+				</item>
+
+				<item label="dfkaa">
+					<action name="Execute">
+						<command>terminator -T netmask -e 'python /home/$(whoami)/penbang/Scripts.py dfkaa'</command>
+					</action>
+				</item>
+				<item label="protos">
+					<action name="Execute">
+						<command>terminator -T protos -e 'python /home/$(whoami)/penbang/Scripts.py protos'</command>
+					</action>
+				</item>
+				<item label="netenum">
+					<action name="Execute">
+						<command>terminator -T netenum -e 'python /home/$(whoami)/penbang/Scripts.py netenum'</command>
+					</action>
+				</item>
+				<item label="tctrace">
+					<action name="Execute">
+						<command>terminator -T tctrace -e 'python /home/$(whoami)/penbang/Scripts.py tctrace'</command>
+					</action>
+				</item>
+				<item label="itrace">
+					<action name="Execute">
+						<command>terminator -T itrace -e 'python /home/$(whoami)/penbang/Scripts.py itrace'</command>
+					</action>
+				</item>
+				<item label="irdpresponder">
+					<action name="Execute">
+						<command>terminator -T irdpresponder -e 'python /home/$(whoami)/penbang/Scripts.py irdpresponder'</command>
+					</action>
+				</item>
+				<item label="irdp">
+					<action name="Execute">
+						<command>terminator -T irdp -e 'python /home/$(whoami)/penbang/Scripts.py irdp'</command>
+					</action>
+				</item>
+				<item label="ass">
+					<action name="Execute">
+						<command>terminator -T 'ass :)' -e 'python /home/$(whoami)/penbang/Scripts.py ass'</command>
+					</action>
+				</item>
+				<item label="igrp">
+					<action name="Execute">
+						<command>terminator -T igrp -e 'python /home/$(whoami)/penbang/Scripts.py igrp'</command>
+					</action>
+				</item>
+				<item label="file2cable">
+					<action name="Execute">
+						<command>terminator -T file2cable -e 'python /home/$(whoami)/penbang/Scripts.py file2cable'</command>
+					</action>
+				</item>
+				<item label="cdp">
+					<action name="Execute">
+						<command>terminator -T cdp -e 'python /home/$(whoami)/penbang/Scripts.py cdp'</command>
+					</action>
+				</item>
+				
+			</menu>
+		</menu>
+<menu id="root-menu-593d" label="TOR" icon="/home/mad-dev/.icons/AwOken/clear/24x24/apps/tor.png">
+			<item label="Browser" icon="/home/mad-dev/.icons/AwOken/clear/24x24/aaoverlay/applications-internet.png">
+				<action name="Execute">
+					<command>terminator -T TOR -e '/home/$(whoami)/penbang/netkit/tor/tor-browser_en-US/start-tor-browser'</command>
+				</action>
+			</item>
+			<item label="Monitor" icon="/home/mad-dev/.icons/AwOken/clear/24x24/places/classy/steel/folder-user.png">
+				<action name="Execute">
+					<command>terminator -T TOR-ARM -e 'python /home/$(whoami)/penbang/Scripts.py tor-arm'</command>
+				</action>
+			</item>
+			
+			<menu id='22' label="Tools">
+			<item label="patator-TOR">
+					<action name="Execute">
+						<command>terminator -T patator -e "python /home/$(whoami)/penbang/Scripts.py patator-tor"</command>
+					</action>
+				</item>
+				</menu>
+		</menu>
+		<item label="OWASP Mantra" icon="/home/mad-dev/penbang/netkit/mantra/Mantra/chrome/icons/default/default16.png">
+			<action name="Execute">
+					<command>terminator -T OWASP-Mantra  --command='/home/$(whoami)/penbang/netkit/mantra/OWASP\ Mantra'</command>
+				</action>
+		</item>
+
+
+
+
+		<separator label="          "/>
+		<menu execute="cb-places-pipemenu" id="pipe-placesmenu" label="Places" icon="/home/mad-dev/.icons/AwOken/clear/128x128/places/tlag/tlaglight/folder-search.png"/>
+		<menu execute="cb-recent-files-pipemenu" id="pipe-recentfilesmenu" label="Recent Files" icon="/home/mad-dev/.icons/AwOken/clear/128x128/places/stock_smart-playlist.png"/>
+		<separator/>
+		<menu id="settings" label="Settings" icon="/home/mad-dev/.icons/AwOken/clear/128x128/categories/redhat-system_tools.png">
+			<menu execute="cb-compositor" id="CompositingPipeMenu" label="Compositor"/>
+			<menu id="conkyconfig" label="Conky">
+				<item label="Edit .conkyrc">
+					<action name="Execute">
+						<command>
+							geany ~/.conkyrc
+						</command>
+					</action>
+				</item>
+				<item label="Restart Conky">
+					<action name="Execute">
+						<command>
+							conkywonky
+						</command>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man page">
+					<action name="Execute">
+						<command>
+							terminator --command=&quot;man conky&quot;
+						</command>
+					</action>
+				</item>
+				<item label="Wiki Page">
+					<action name="Execute">
+						<command>
+							x-www-browser http://crunchbanglinux.org/wiki/conky
+						</command>
+					</action>
+				</item>
+			</menu>
+			<menu id="dmenuconfig" label="dmenu">
+				<item label="Edit start-up script">
+					<action name="Execute">
+						<command>
+							geany ~/.config/dmenu/dmenu-bind.sh
+						</command>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man page">
+					<action name="Execute">
+						<command>
+							terminator --command=&quot;man dmenu&quot;
+						</command>
+					</action>
+				</item>
+			</menu>
+			<menu id="gmrunconfig" label="gmrun">
+				<item label="Edit config file">
+					<action name="Execute">
+						<command>
+							geany ~/.gmrunrc
+						</command>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man page">
+					<action name="Execute">
+						<command>
+							terminator --command=&quot;man gmrun&quot;
+						</command>
+					</action>
+				</item>
+			</menu>
+			<menu id="obConfig" label="Openbox">
+				<item label="Edit menu.xml">
+					<action name="Execute">
+						<command>
+							geany ~/.config/openbox/menu.xml
+						</command>
+					</action>
+				</item>
+				<item label="Edit rc.xml">
+					<action name="Execute">
+						<command>
+							geany ~/.config/openbox/rc.xml
+						</command>
+					</action>
+				</item>
+				<item label="Edit autostart">
+					<action name="Execute">
+						<command>
+							geany ~/.config/openbox/autostart
+						</command>
+					</action>
+				</item>
+				<separator/>
+				<item label="GUI Menu Editor">
+					<action name="Execute">
+						<command>
+							obmenu
+						</command>
+					</action>
+				</item>
+				<item label="GUI Applications Settings Editor">
+					<action name="Execute">
+						<command>
+							obapps
+						</command>
+					</action>
+				</item>
+				<item label="GUI Config Tool">
+					<action name="Execute">
+						<command>
+							obconf
+						</command>
+					</action>
+				</item>
+				<separator/>
+				<item label="Reconfigure">
+					<action name="Reconfigure"/>
+				</item>
+				<item label="Restart">
+					<action name="Restart"/>
+				</item>
+			</menu>
+			<menu id="terminatorconfig" label="Terminator">
+				<item label="Edit config file">
+					<action name="Execute">
+						<command>
+							geany ~/.config/terminator/config
+						</command>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man page">
+					<action name="Execute">
+						<command>
+							terminator --command=&quot;man terminator_config&quot;
+						</command>
+					</action>
+				</item>
+			</menu>
+			<menu id="tint2config" label="tint2">
+				<item label="Edit config file">
+					<action name="Execute">
+						<command>
+							geany ~/.config/tint2/tint2rc
+						</command>
+					</action>
+				</item>
+				<item label="Restart tint2">
+					<action name="Execute">
+						<command>
+							tint2restart
+						</command>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man page">
+					<action name="Execute">
+						<command>
+							terminator --command=&quot;man tint2&quot;
+						</command>
+					</action>
+				</item>
+				<item label="Online Help">
+					<action name="Execute">
+						<command>
+							x-www-browser http://code.google.com/p/tint2/wiki/Welcome
+						</command>
+					</action>
+				</item>
+			</menu>
+			<menu id="DisplaySettings" label="Display Settings">
+				<item label="ARandR Screen Layout Editor">
+					<action name="Execute">
+						<command>
+						    arandr
+					    </command>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man xrandr">
+					<action name="Execute">
+						<command>
+						    terminator --command=&quot;man xrandr&quot;
+					    </command>
+					</action>
+				</item>
+			</menu>
+			<item label="Edit Default Applications">
+				<action name="Execute">
+					<command>
+						terminator --command=&quot;sudo update-alternatives --all&quot;
+					</command>
+				</action>
+			</item>
+			<item label="User Interface Settings">
+				<action name="Execute">
+					<command>
+						lxappearance
+					</command>
+				</action>
+			</item>
+			<item label="Power Management">
+				<action name="Execute">
+					<command>
+						xfce4-power-manager-settings
+					</command>
+				</action>
+			</item>
+			<item label="Screensaver">
+				<action name="Execute">
+					<command>
+						xscreensaver-demo
+					</command>
+				</action>
+			</item>
+			<item label="Choose Wallpaper">
+				<action name="Execute">
+					<command>
+						nitrogen ~/images/wallpapers/
+					</command>
+				</action>
+			</item>
+		</menu>
+		<menu id="system" label="System" icon="/home/mad-dev/.icons/AwOken/clear/128x128/categories/applications-development.png">
+			<menu execute="cb-printing-pipemenu" id="PrintingPipeMenu" label="Printers"/>
+			<item label="GParted">
+				<action name="Execute">
+					<command>
+						gksudo gparted
+					</command>
+				</action>
+			</item>
+			<item label="Synaptic Package Manager">
+				<action name="Execute">
+					<command>
+						gksudo synaptic
+					</command>
+				</action>
+			</item>
+			<item label="User Login Settings">
+				<action name="Execute">
+					<command>
+						gksudo slimconf
+					</command>
+				</action>
+			</item>
+		</menu>
+		<!--<menu id="help" label="Help" execute="cb-help-pipemenu" />-->
+		<separator/>
+		<item label="Lock Screen" icon="/home/mad-dev/.icons/AwOken/clear/128x128/status/object-locked.png">
+			<action name="Execute">
+				<command>
+					cb-lock
+				</command>
+			</action>
+		</item>
+		<item label="Exit" icon="/home/mad-dev/.icons/AwOken/clear/128x128/emblems/emblem-dropbox-unsyncable.png">
+			<action name="Execute">
+				<command>
+					cb-exit
+				</command>
+			</action>
+		</item>
+	</menu>
+</openbox_menu>

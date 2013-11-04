@@ -1,0 +1,107 @@
+
+
+Example 1
+---crunch 1 8
+---crunch will display a wordlist that starts at a and ends at zzzzzzzz
+
+Example 2
+---crunch 1 6 abcdefg
+---crunch will display a wordlist using the character set abcdefg that starts at a and ends at gggggg
+
+Example 3
+---crunch 1 6 abcdefg\
+---there is a space at the end of the character string. In order for crunch to use the space you will need to escape it using the \ character. In this example you could also put quotes around the letters and not need the \, i.e. "abcdefg ". Crunch will display a wordlist using the character set abcdefg that starts at a and ends at (6 spaces)
+
+Example 4
+---crunch 1 8 -f charset.lst mixalpha-numeric-all-space -o wordlist.txt
+---crunch will use the mixalpha-numeric-all-space character set from charset.lst and will write the wordlist to a file named wordlist.txt. The file will start with a and end with " "
+
+Example 5
+---crunch 8 8 -f charset.lst mixalpha-numeric-all-space -o wordlist.txt -t @@dog@@@ -s cbdogaaa
+---crunch should generate a 8 character wordlist using the mixalpha-number-all-space characterset from charset.lst and will write the wordlist to a file named wordlist.txt. The file will start at cbdogaaa and end at " dog "
+
+Example 6
+---crunch 2 3 -f charset.lst ualpha -s BB
+---crunch with start generating a wordlist at BB and end with ZZZ. This is useful if you have to stop generating a wordlist in the middle. Just do a tail wordlist.txt and set the -s parameter to the next word in the sequence. Be sure to rename the original wordlist BEFORE you begin as crunch will overwrite the existing wordlist.
+
+Example 7
+---crunch 4 5 -p abc
+---The numbers aren't processed but are needed.
+---crunch will generate abc, acb, bac, bca, cab, cba.
+
+Example 8
+---crunch 4 5 -p dog cat bird
+---The numbers aren't processed but are needed.
+---crunch will generate birdcatdog, birddogcat, catbirddog, catdogbird, dogbirdcat, dogcatbird.
+
+Example 9
+---crunch 1 5 -o START -c 6000 -z bzip2
+---crunch will generate bzip2 compressed files with each file containing 6000 words. The filenames of the compressed files will be first_word-last_word.txt.bz2
+
+# time ./crunch 1 4 -o START -c 6000 -z gzip
+real 0m2.729s
+user 0m2.216s
+sys 0m0.360s
+
+# time ./crunch 1 4 -o START -c 6000 -z bzip2
+real 0m3.414s
+user 0m2.620s
+sys 0m0.580s
+
+# time ./crunch 1 4 -o START -c 6000 -z lzma
+real 0m43.060s
+user 0m9.965s
+sys 0m32.634s
+
+size filename
+30K aaaa-aiwt.txt
+12K aaaa-aiwt.txt.gz
+3.8K aaaa-aiwt.txt.bz2
+1.1K aaaa-aiwt.txt.lzma
+
+Example 10
+---crunch 4 5 -b 20mib -o START
+---will generate 4 files: aaaa-gvfed.txt, gvfee-ombqy.txt, ombqz-wcydt.txt, wcydu-zzzzz.txt
+---the first three files are 20MBs (real power of 2 MegaBytes) and the last file is 11MB.
+
+Example 11
+---crunch 3 3 abc + 123 !@# -t @%^
+---will generate a 3 character long word with a character as the first character, and number as the second character, and a symbol for the third character. The order in which you specify the characters you want is important. You must specify the order as lower case character, upper case character, number, and symbol. If you aren't going use a particular character set you use a plus sign as a placeholder. As you can see I am not using the upper case character set so I am using the plus sign placeholder. The above will start at a1! and end at c3#
+
+Example 12
+---crunch 3 3 abc + 123 !@# -t ^%@
+---will generate 3 character words starting with !1a and end with #3c
+
+Example 13
+---crunch 4 4 + + 123 + -t %%@^
+---the plus sign (+) is a place holder so you can specify a character set for the character type. crunch will use the default character set for the character type when crunch encounters a + (plus sign) on the command line. You must either specify values for each character type or use the plus sign. I.E. if you have two characters types you MUST either specify values for each type or use a plus sign. So in this example the character sets will be:
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+123
+!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/
+there is a space at the end of the above string
+the output will start at 11a! and end at "33z ". The quotes show the space at the end of the string.
+
+Example 14
+---crunch 5 5 -t ddd@@ -o j -p dog cat bird
+---any character other than one of the following: @,%^
+is the placeholder for the words to permute. The @,%^ symbols have the same function as -t.
+If you want to use @,%^ in your output you can use the -l option to specify which character you want crunch to treat as a literal.
+So the results are
+birdcatdogaa
+birdcatdogab
+birdcatdogac
+<skipped>
+dogcatbirdzy
+dogcatbirdzz
+
+Example 15
+---crunch 7 7 -t p@ss,%^ -l @
+---crunch will now treat the @ symbol as a literal character and not replace the character with a uppercase letter.
+this will generate
+p@ssA0!
+p@ssA0@
+p@ssA0#
+p@ssA0$
+<skipped>
+p@ssZ9

