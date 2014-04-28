@@ -29,7 +29,7 @@ Scripts.py and bigfig.py will always be to the latest version
 
 ##TODO::
 
-- [ ] Rewrite install_penbang_update.sh ----> is is needed??? there is a repo.
+- [ ] Rewrite install_penbang_update.sh ----> is it needed??? there is a repo.
 - [ ] Rewrite penbang_install_script.py ----> must include the initial install.py(irpas, dsniff....)
 - [ ] add missing tools in bigfig.py ----> or the hell with it!!!
 - [ ] Write a seperate script for the menu --- Thank you ryan
